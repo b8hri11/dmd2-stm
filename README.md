@@ -38,6 +38,9 @@ More documentation will be produced before the library reaches final release rat
 
 Feel free to ask [questions on the forum](http://forum.freetronics.com/viewforum.php?f=26) if things don't work.
 
+# STM32 Support
+Software and hardware SPI
+
 # ESP8266 Support
 
 Thanks to @h4rm0n1c there is support for DMD2 on ESP8266 using the Arduino environment. See [this comment](https://github.com/freetronics/DMD2/pull/7#issue-97282971) for an explanation of using DMD2 on ESP8266.
