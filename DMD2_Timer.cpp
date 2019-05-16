@@ -106,7 +106,7 @@ void BaseDMD::begin()
   timer0_write(ESP.getCycleCount() + ESP8266_TIMER0_TICKS);*/
   //Timer4.setPrescaleFactor(1);
   Timer4.setMode(TIMER_CH1, TIMER_OUTPUTCOMPARE);
-  Timer4.setPeriod(2160);          // in microseconds
+  Timer4.setPeriod(4000);          // in microseconds
   Timer4.setCompare(TIMER_CH1, 1); // overflow might be small
   Timer4.attachInterrupt(TIMER_CH1, scan_running_dmds);
 }
