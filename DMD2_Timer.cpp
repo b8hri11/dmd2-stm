@@ -98,17 +98,17 @@ void BaseDMD::begin()
 {
   beginNoTimer();
   //timer0_detachInterrupt();
-  Timer4.detachInterrupt(TIMER_CH1);
+  Timer3.detachInterrupt(TIMER_CH1);
   register_running_dmd(this);
   
   /*timer0_isr_init();
   timer0_attachInterrupt(scan_running_dmds);
   timer0_write(ESP.getCycleCount() + ESP8266_TIMER0_TICKS);*/
   //Timer4.setPrescaleFactor(1);
-  Timer4.setMode(TIMER_CH1, TIMER_OUTPUTCOMPARE);
-  Timer4.setPeriod(4000);          // in microseconds
-  Timer4.setCompare(TIMER_CH1, 1); // overflow might be small
-  Timer4.attachInterrupt(TIMER_CH1, scan_running_dmds);
+  Timer3.setMode(TIMER_CH1, TIMER_OUTPUTCOMPARE);
+  Timer3.setPeriod(4000);          // in microseconds
+  Timer3.setCompare(TIMER_CH1, 1); // overflow might be small
+  Timer3.attachInterrupt(TIMER_CH1, scan_running_dmds);
 }
 
 void BaseDMD::end()
@@ -116,7 +116,7 @@ void BaseDMD::end()
   bool still_running = unregister_running_dmd(this);
   if(!still_running)
   {
-    Timer4.detachInterrupt(TIMER_CH1); // timer0 disables itself when the CPU cycle count reaches its own value, hence ESP.getCycleCount()
+    Timer3.detachInterrupt(TIMER_CH1); // timer0 disables itself when the CPU cycle count reaches its own value, hence ESP.getCycleCount()
   }
   clearScreen();
   scanDisplay();
